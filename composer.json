@@ -1,0 +1,24 @@
+{
+    "name": "dahas/easy-template",
+    "description": "A PHP Template Parser",
+    "type": "library",
+    "license": "GNU v3",
+    "autoload": {
+        "psr-4": {
+            "DH\\Essentials\\": "src/"
+        }
+    },
+    "scripts": {
+        "test": "./vendor/bin/phpunit tests/EasyTemplateTest.php"
+    },
+    "authors": [
+        {
+            "name": "dahas",
+            "email": "dahas@gmx.de"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require-dev": {
+        "phpunit/phpunit": "^10.1@dev"
+    }
+}
