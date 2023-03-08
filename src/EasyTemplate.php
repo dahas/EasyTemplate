@@ -8,8 +8,9 @@ class EasyTemplate {
 
 	public function __construct($file = '')
 	{
-		if (is_file($file))
+		if (is_file($file)) {
 			$this->html = file_get_contents($file);
+		}
 	}
 
 	public function getSlice(string $marker): mixed
