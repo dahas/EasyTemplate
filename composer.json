@@ -9,7 +9,7 @@
         }
     },
     "scripts": {
-        "test": "./vendor/bin/phpunit tests/EasyTemplateTest.php"
+        "test": "./vendor/bin/phpunit"
     },
     "authors": [
         {
