@@ -15,6 +15,7 @@ class EasyTemplate {
 
 	public function getSlice(string $marker): mixed
 	{
+		$marker = "{{" . $marker . "}}";
 		$start = strpos($this->html, $marker);
 		if ($start === false) {
 			return '';
@@ -47,7 +48,7 @@ class EasyTemplate {
 	private function replaceMarker(string $html, array $markerArr): string
 	{
 		foreach ($markerArr as $key => $val) {
-			$html = str_replace($key, strval($val), $html);
+			$html = str_replace("[[".$key."]]", strval($val), $html);
 		}
 		return $html;
 	}
@@ -55,7 +56,7 @@ class EasyTemplate {
 	private function replaceSlice(string $html, array $slicesArr): string
 	{
 		foreach ($slicesArr as $key => $val) {
-			$html = self::trimSlice($html, $key, $val);
+			$html = self::trimSlice($html, "{{".$key."}}", $val);
 		}
 		return $html;
 	}
@@ -104,7 +105,7 @@ class EasyTemplate {
 		return $before . $between . $after;
 	}
 
-	public function parse(array $markerArr = array(), array $slicesArr = array()): string
+	public function parse(array $markerArr = [], array $slicesArr = []): string
 	{
 		$html = $this->html;
 		if (!empty($markerArr)) {
@@ -113,6 +114,6 @@ class EasyTemplate {
 		if (!empty($slicesArr)) {
 			$html = $this->replaceSlice($html, $slicesArr);
 		}
-		return $html;
+		return trim($html);
 	}
 }
