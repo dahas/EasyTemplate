@@ -19,18 +19,18 @@ class EasyTemplateTest extends TestCase {
 
     public function testParser()
     {
-        $rows = $this->template->getSlice("{{ROWS}}")->parse([
-            "[[UID]]" => 1,
-            "[[NAME]]" => "Angus Young",
-            "[[AGE]]" => 66,
-            "[[CITY]]" => "Melbourne",
+        $rows = $this->template->getSlice("ROWS")->parse([
+            "UID" => 1,
+            "NAME" => "Angus Young",
+            "AGE" => 66,
+            "CITY" => "Melbourne",
         ]);
 
         $tmpl = $this->template->parse([
-            "[[TITLE]]" => "ABCDEFG",
-            "[[HEADER]]" => "YXCVBNM",
+            "TITLE" => "ABCDEFG",
+            "HEADER" => "YXCVBNM",
         ], [
-            "{{ROWS}}" => $rows
+            "ROWS" => $rows
         ]);
 
         $this->assertStringEqualsFile(__DIR__ . "/result.html", $tmpl);
