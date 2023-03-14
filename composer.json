@@ -1,6 +1,5 @@
 {
     "name": "dahas/easy-template",
-    "version": "v1.1.0",
     "description": "A PHP Template Parser",
     "type": "library",
     "license": "GPL-3.0-or-later",
