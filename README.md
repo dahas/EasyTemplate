@@ -82,7 +82,7 @@ Slices are treated like Templates. You can even put a Slice in its own HTML file
 Getting the Slice within a Template:
 
 ````php
-$slice = $this->template->getSlice("{{ROWS}}");
+$slice = $this->template->getSlice("ROWS");
 ````
 
 Loading the Slice from its own file:
