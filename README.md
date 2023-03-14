@@ -98,21 +98,21 @@ To replace Markers and Slices and return a valid HTML document you use the `pars
 $template = new EasyTemplate("path/to/template.html");
 
 $markers = [
-    "[[TITLE]]" => "The title",
-    "[[HEADER]]" => "Easy Template is cool!"
+    "TITLE" => "The title",
+    "HEADER" => "Easy Template is cool!"
 ];
 
-$slice = $template->getSlice("{{ROWS}}");
+$slice = $template->getSlice("ROWS");
 
 $rows = $slice->parse([
-    "[[UID]]" => 1,
-    "[[NAME]]" => "Angus Young",
-    "[[AGE]]" => 66,
-    "[[CITY]]" => "Melbourne",
+    "UID" => 1,
+    "NAME" => "Angus Young",
+    "AGE" => 66,
+    "CITY" => "Melbourne",
 ]);
 
 $slices = [
-    "{{ROWS}}" => $rows
+    "ROWS" => $rows
 ];
 
 return $template->parse($markers, $slices);
